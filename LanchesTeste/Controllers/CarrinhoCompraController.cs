@@ -30,11 +30,11 @@ namespace LanchesTeste.Controllers
 			return View(carrinhoCompraVM);
 		}
 
-		public IActionResult AdicionarItemNoCarrinhoCompra(int lancheId) 
+		public IActionResult AdicionarItemNoCarrinhoCompra(int lancheId)
 		{
-			var lancheSelecionado =_lanchesRepository.Lanches.FirstOrDefault(p => p.LancheId == lancheId);
+			var lancheSelecionado = _lanchesRepository.Lanches.FirstOrDefault(p => p.LancheId == lancheId);
 
-			if(lancheSelecionado != null)
+			if (lancheSelecionado != null)
 			{
 				_carrinhoCompra.AdicionarAoCarrinho(lancheSelecionado);
 			}
@@ -52,4 +52,5 @@ namespace LanchesTeste.Controllers
 
 			return RedirectToAction("Index");
 		}
+	}
 }
