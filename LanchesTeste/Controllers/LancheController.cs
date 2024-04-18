@@ -27,17 +27,21 @@ namespace LanchesTeste.Controllers
             }
             else
             {
-                 if(string.Equals("Normal", categoria, StringComparison.OrdinalIgnoreCase))
-                 {
-                    lanches = _lanchesRepository.Lanches.Where(l => l.Categoria.CategoriaNome.Equals("Normal"))
-                    .OrderBy(l => l.Nome);
-                 }
+                //if(string.Equals("Normal", categoria, StringComparison.OrdinalIgnoreCase))
+                //{
+                // lanches = _lanchesRepository.Lanches.Where(l => l.Categoria.CategoriaNome.Equals("Normal"))
+                //.OrderBy(l => l.Nome);
+                //}
 
-                 else
-                {
-                    lanches = _lanchesRepository.Lanches.Where(l => l.Categoria.CategoriaNome.Equals("Natural"))
-                    .OrderBy(l => l.Nome);
-                }
+                //else
+                //{
+                //lanches = _lanchesRepository.Lanches.Where(l => l.Categoria.CategoriaNome.Equals("Natural"))
+                //   .OrderBy(l => l.Nome);
+                //}
+
+                lanches = _lanchesRepository.Lanches
+                    .Where(l => l.Categoria.CategoriaNome.Equals(categoria))
+                    .OrderBy(c => c.Nome);
                 categoriaAtual = categoria;
             }
 
