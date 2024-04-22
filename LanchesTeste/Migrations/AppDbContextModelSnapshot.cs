@@ -169,12 +169,17 @@ namespace LanchesTeste.Migrations
                     b.Property<decimal>("PedidoTotal")
                         .HasColumnType("decimal (18,2)");
 
+                    b.Property<string>("Sobrenome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Telefone")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<int>("TotalItensNoPedido")
+                    b.Property<int>("TotalItensPedido")
                         .HasColumnType("int");
 
                     b.HasKey("PedidoId");

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LanchesTeste.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240419061154_PedidoDetalhes")]
+    [Migration("20240420003000_PedidoDetalhes")]
     partial class PedidoDetalhes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -171,12 +171,17 @@ namespace LanchesTeste.Migrations
                     b.Property<decimal>("PedidoTotal")
                         .HasColumnType("decimal (18,2)");
 
+                    b.Property<string>("Sobrenome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Telefone")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<int>("TotalItensNoPedido")
+                    b.Property<int>("TotalItensPedido")
                         .HasColumnType("int");
 
                     b.HasKey("PedidoId");

@@ -7,10 +7,14 @@ namespace LanchesTeste.Models
     {
         public int PedidoId {  get; set; }
 
-        [Required(ErrorMessage = "Informeo nome")]
+        [Required(ErrorMessage = "Informe nome")]
         [StringLength(50)]
 
         public string Nome { get; set; }
+
+        [Required(ErrorMessage = "Informe o sobrenome")]
+        [StringLength(50)]
+        public string Sobrenome { get; set; }
 
         [Required(ErrorMessage ="Informe seu endereço")]
         [StringLength(100)]
@@ -60,7 +64,7 @@ namespace LanchesTeste.Models
         [ScaffoldColumn(false)]
         [Display(Name = "Itens no pedido")]
 
-        public int TotalItensNoPedido { get; set; }
+        public int TotalItensPedido { get; set; }
 
         [Display(Name = "Data do Pedido")]
         [DataType(DataType.Text)]
@@ -73,7 +77,6 @@ namespace LanchesTeste.Models
         public DateTime? PedidoEntregueEm { get; set; }
 
         public List<PedidoDetalhe> PedidoItens { get; set; }
-
-
+      
     }
 }
