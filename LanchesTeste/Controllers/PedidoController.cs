@@ -3,6 +3,7 @@ using LanchesTeste.Repositories.Interfaces;
 using LanchesTeste.Models;
 using LanchesTeste.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LanchesTeste.Controllers
 {
@@ -18,13 +19,14 @@ namespace LanchesTeste.Controllers
             _carrinhoCompra = carrinhoCompra;
         }
 
-        [HttpGet]
+        [Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
 
-        [HttpPost]
+		[Authorize]
+		[HttpPost]
         public IActionResult Checkout(Pedido pedido)
         {
             int totalItensPedido = 0;
