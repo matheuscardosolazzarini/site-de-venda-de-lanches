@@ -106,7 +106,7 @@ namespace LanchesTeste.Models
 		{
 			var total = _context.CarrinhoCompraItems
 				.Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
-				.Select(c => c.Lanche.Preco *c.Quantidade).Sum();
+				.Select(c => c.Lanche.Preco * c.Quantidade).Sum();
 
 			return total;
 		}
