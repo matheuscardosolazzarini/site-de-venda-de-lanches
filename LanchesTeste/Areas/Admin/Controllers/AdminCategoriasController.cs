@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace LanchesTeste.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize (Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminCategoriasController : Controller
     {
         private readonly AppDbContext _context;
@@ -25,7 +25,7 @@ namespace LanchesTeste.Areas.Admin.Controllers
         // GET: Admin/AdminCategorias
         public async Task<IActionResult> Index()
         {
-              return View(await _context.categorias.ToListAsync());
+            return View(await _context.categorias.ToListAsync());
         }
 
         // GET: Admin/AdminCategorias/Details/5
@@ -151,14 +151,14 @@ namespace LanchesTeste.Areas.Admin.Controllers
             {
                 _context.categorias.Remove(categoria);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoriaExists(int id)
         {
-          return _context.categorias.Any(e => e.CategoriaId == id);
+            return _context.categorias.Any(e => e.CategoriaId == id);
         }
     }
 }

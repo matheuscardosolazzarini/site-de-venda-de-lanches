@@ -5,6 +5,7 @@ using LanchesTeste.Repositories.Interfaces;
 using LanchesTeste.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 
 namespace LanchesTeste;
 public class Startup
@@ -52,7 +53,13 @@ public class Startup
 
         services.AddScoped(sp  => CarrinhoCompra.GetCarrinho(sp));
 
-        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+        services.AddPaging(options =>
+        {
+            options.ViewName= "Bootstrap4";
+            options.PageParameterName= "pageindex";
+        });
 
         services.AddControllersWithViews();
 
