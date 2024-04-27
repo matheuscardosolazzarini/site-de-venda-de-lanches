@@ -1,4 +1,5 @@
-﻿using LanchesTeste.Context;
+﻿using LanchesTeste.Areas.Admin.Servicos;
+using LanchesTeste.Context;
 using LanchesTeste.Models;
 using LanchesTeste.Repositories;
 using LanchesTeste.Repositories.Interfaces;
@@ -41,6 +42,7 @@ public class Startup
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
         services.AddTransient<IPedidoRepository, PedidoRepository>();
         services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+        services.AddScoped<RelatorioVendasService>();
 
         services.AddAuthorization(options =>
         {
