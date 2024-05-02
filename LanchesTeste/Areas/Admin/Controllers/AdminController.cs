@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LanchesTeste.Areas.Admin.Controllers
 {
+
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
-        [Area("Admin")]
-        [Authorize("Admin")]
+       
         public IActionResult Index()
         {
             return View();
